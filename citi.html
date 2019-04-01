@@ -76,8 +76,8 @@
                   <md-radio v-model="form.radio" value="Ya lo sabía">Soy gay</md-radio>
                   <md-radio v-model="form.radio" value="Ya me lo esperaba">Soy ultra gay</md-radio>
                   <md-radio v-model="form.radio" value="He he he tus límites no me sorprenden">No existe valor para lo gay que soy</md-radio>
-                  <small>{{form.radio}}</small>
                 </div>
+                <small class="md-layout-item">{{form.radio}}</small>
               </div>
             </md-card-content>
 
@@ -112,6 +112,19 @@
             email: '',
             phone: '',
             radio: null
+          },
+          showFormData: false
+        },
+        methods: {
+          clear: function(){
+            this.form.firstName = ''
+            this.form.lastName = ''
+            this.form.email = ''
+            this.form.phone = ''
+            this.form.radio = null
+          },
+          send: function(){
+            this.showFormData = true
           }
         }
       })

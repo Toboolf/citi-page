@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1,minimal-ui" name="viewport">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/theme/default.css">
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="black md-layout">
+        <div class="md-layout-item md-size-10"></div>
+        <div class="md-layout-item">
+          <md-button class="white">CITIBANK | ENGLISH</md-button>
+        </div>
+      </div>
+      <md-toolbar class="md-medium md-layout degraded">
+        <div class="md-layout-item md-size-10"></div>
+        <div class="md-layout-item">
+          <img src="citilogo.svg">
+        </div>
+      </md-toolbar>
+      <div class="md-layout degraded">
+        <div class="md-layout-item md-size-10"></div>
+        <md-button @click="message=msg1">Button 1</md-button>
+        <md-button @click="message=msg2">Button 2</md-button>
+        <md-button @click="message=msg3">Button 3</md-button>
+        <md-button @click="message=null">Button 4</md-button>
+      </div>
+      
+      <div class="md-layout">
+        <md-toolbar v-show="message">{{message}}</md-toolbar>
+      </div>
+      
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-material@beta"></script>
+    <script>
+      Vue.use(VueMaterial.default)
+
+      new Vue({
+        el: '#app',
+        data: {
+          msg1: "Soy el botón 1 paps",
+          msg2: "Yo soy el 2",
+          msg3: "Ya te gustó no >:C",
+          message: null
+        }
+      })
+    </script>
+    <style lang="css" scoped>
+      .md-toolbar + .md-toolbar {
+        margin-top: 16px;
+      }
+      .degraded{  
+        background-image: linear-gradient(#66b3ff, #0066cc);
+      }
+      .black{background-color: black;}
+      .white{
+        color: white !important;
+        font-size: 1<em;
+      }
+    </style>
+  </body>
+</html>

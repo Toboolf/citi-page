@@ -9,7 +9,10 @@
   </head>
 
   <body>
+    <!--THIS IS WHERE VUE JS STARTS TO WORK :3-->
     <div id="app">
+
+      <!------------MENU------------->
       <div class="black md-layout">
         <div class="md-layout-item md-size-10"></div>
         <div class="md-layout-item">
@@ -29,10 +32,65 @@
         <md-button @click="message=msg3">Button 3</md-button>
         <md-button @click="message=null">Button 4</md-button>
       </div>
+      <!------------END MENU------------->
       
-      <div class="md-layout">
-        <md-toolbar v-show="message">{{message}}</md-toolbar>
+      <!------------MAIN CONTENT------------->
+      <div class="md-layout md-gutter md-alignment-top-center">
+        <md-toolbar class="md-layout-item md-size-100" v-show="message">{{message}}</md-toolbar>
+
+        <!--NOT A FORM BUT HAS FIELDS INSIDE A VUE MATERIAL CARD------------->
+        <md-card md-with-hover class="md-layout-item md-size-50">
+          <md-ripple>
+            <md-card-header>
+              <div class="md-title">Este es el formulario</div>
+              <div class="md-subhead">Así que llénalo pacientemente por favor :3</div>
+            </md-card-header>
+
+            <md-card-content>
+              <div class="md-layout md-gutter">
+                <div class="md-layout-item md-size-50">
+                  <md-field>
+                    <label>Aquí va tu nombre</label>
+                    <md-input v-model="form.firstName"></md-input>
+                  </md-field>
+                </div>
+                <div class="md-layout-item md-size-50">
+                  <md-field>
+                    <label>Y aquí tu apellido</label>
+                    <md-input v-model="form.lastName"></md-input>
+                  </md-field>
+                </div>
+                <div class="md-layout-item md-size-100">
+                  <md-field>
+                    <label>Tu correo pls</label>
+                    <md-input v-model="form.email"></md-input>
+                  </md-field>
+                </div>
+                <div class="md-layout-item md-size-100">
+                  <md-field>
+                    <label>Call me maybe?</label>
+                    <md-input v-model="form.phone"></md-input>
+                  </md-field>
+                </div>
+                <div class="md-layout-item md-size-100">
+                  <md-radio v-model="form.radio" value="Ya lo sabía">Soy gay</md-radio>
+                  <md-radio v-model="form.radio" value="Ya me lo esperaba">Soy ultra gay</md-radio>
+                  <md-radio v-model="form.radio" value="He he he tus límites no me sorprenden">No existe valor para lo gay que soy</md-radio>
+                  <small>{{form.radio}}</small>
+                </div>
+              </div>
+            </md-card-content>
+
+            <md-card-actions>
+              <md-button @click="send">Enviar</md-button>
+              <md-button @click="clear">Nope</md-button>
+            </md-card-actions>
+          </md-ripple>
+        </md-card>
+        <!------------END NOT A FORM XD------------->
+
       </div>
+      <!------------END MAIN CONTENT------------->
       
     </div>
 
@@ -47,7 +105,14 @@
           msg1: "Soy el botón 1 paps",
           msg2: "Yo soy el 2",
           msg3: "Ya te gustó no >:C",
-          message: null
+          message: null,
+          form: {
+            firstName: '',
+            lastName: '',
+            email: '',
+            phone: '',
+            radio: null
+          }
         }
       })
     </script>

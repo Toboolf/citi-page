@@ -27,6 +27,7 @@
       </md-toolbar>
       <div class="md-layout degraded">
         <div class="md-layout-item md-size-10"></div>
+        <md-button @click="showForm = !showForm">Show form</md-button>
         <md-button @click="message=msg1">Button 1</md-button>
         <md-button @click="message=msg2">Button 2</md-button>
         <md-button @click="message=msg3">Button 3</md-button>
@@ -39,7 +40,7 @@
         <md-toolbar class="md-layout-item md-size-100" v-show="message">{{message}}</md-toolbar>
 
         <!--NOT A FORM BUT HAS FIELDS INSIDE A VUE MATERIAL CARD------------->
-        <md-card md-with-hover class="md-layout-item md-size-70">
+        <md-card md-with-hover v-show="showForm" class="md-layout-item md-size-70">
             <md-card-header>
               <div class="md-title">Este es el formulario</div>
               <div class="md-subhead">Así que llénalo pacientemente por favor :3</div>
@@ -112,6 +113,7 @@
       new Vue({
         el: '#app',
         data: {
+          showForm: false,
           msg1: "Soy el botón 1 paps",
           msg2: "Yo soy el 2",
           msg3: "Ya te gustó no >:C",

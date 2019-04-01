@@ -39,8 +39,7 @@
         <md-toolbar class="md-layout-item md-size-100" v-show="message">{{message}}</md-toolbar>
 
         <!--NOT A FORM BUT HAS FIELDS INSIDE A VUE MATERIAL CARD------------->
-        <md-card md-with-hover class="md-layout-item md-size-50">
-          <md-ripple>
+        <md-card md-with-hover class="md-layout-item md-size-70">
             <md-card-header>
               <div class="md-title">Este es el formulario</div>
               <div class="md-subhead">Así que llénalo pacientemente por favor :3</div>
@@ -85,9 +84,20 @@
               <md-button @click="send">Enviar</md-button>
               <md-button @click="clear">Nope</md-button>
             </md-card-actions>
-          </md-ripple>
-        </md-card>
+        </md-card>  
         <!------------END NOT A FORM XD------------->
+
+        <md-card md-with-hover v-show="showFormData" class="md-layout-item md-size-70">
+          <md-card-header>
+            <div class="md-title">Yo todo MANCO contesté lo siguiente:</div>
+          </md-card-header>
+          <md-card-content class="md-layout md-gutter">
+            <div class="md-layout-item">Mi nombre manquito es: {{form.firstName}} {{form.lastName}}</div>
+            <div class="md-layout-item">Mi correo homosexual es: {{form.email}}</div>
+            <div class="md-layout-item">Mi phone para contrataciones por las noches es: {{form.phone}}</div>
+            <div class="md-layout-item">Y por supuesto soy GAY pero {{form.radio}}</div>
+          </md-card-content>
+        </md-card>
 
       </div>
       <!------------END MAIN CONTENT------------->
@@ -122,6 +132,7 @@
             this.form.email = ''
             this.form.phone = ''
             this.form.radio = null
+            this.showFormData = false
           },
           send: function(){
             this.showFormData = true
